@@ -10,9 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.utfpr.utfprnews.activity.FormularioActivity;
 import br.edu.utfpr.utfprnews.activity.NewsActivity;
 import br.edu.utfpr.utfprnews.adapter.AdapterNews;
 import br.edu.utfpr.utfprnews.listener.RecyclerViewClickListener;
@@ -25,6 +28,7 @@ public class Welcome extends AppCompatActivity {
 
     private RecyclerView listNews;
     private List<News> lista = new ArrayList<>();
+    private FloatingActionButton fab;
 
 
     @Override
@@ -42,6 +46,8 @@ public class Welcome extends AppCompatActivity {
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
         listNews = findViewById(R.id.recyclerNews);
+
+        fab = findViewById(R.id.floatingActionButton);
 
         //chama lista e passa no config do adapter
         geraLista();
@@ -69,14 +75,14 @@ public class Welcome extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
 
                 //passa dados para dentro da activity
-                intent.putExtra("nome", lista.get(position).getNome());
-                intent.putExtra("sigla", lista.get(position).getSigla());
+               // intent.putExtra("nome", lista.get(position).getNome());
+                //intent.putExtra("sigla", lista.get(position).getSigla());
+
+                Intent intent1 = new Intent(getApplicationContext(), FormularioActivity.class);
                 intent.putExtra("news", lista.get(position));
 
                 //Inicializa activity
                 startActivity(intent);
-
-
             }
 
             @Override
@@ -86,6 +92,16 @@ public class Welcome extends AppCompatActivity {
             }
         }
     ));
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(getApplicationContext(), FormularioActivity.class);
+                intent1.putExtra("news", String.valueOf(new News("","","")));
+                startActivity(intent1);
+
+            }
+        });
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
     //metodo gera lista

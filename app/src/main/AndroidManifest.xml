@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UtfprNews">
+        <activity android:name=".activity.FormularioActivity"></activity>
         <activity android:name=".activity.NewsActivity" />
         <activity
             android:name=".Splash"
