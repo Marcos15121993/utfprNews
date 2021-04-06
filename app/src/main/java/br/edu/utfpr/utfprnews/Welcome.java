@@ -75,10 +75,8 @@ public class Welcome extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
 
                 //passa dados para dentro da activity
-               // intent.putExtra("nome", lista.get(position).getNome());
-                //intent.putExtra("sigla", lista.get(position).getSigla());
-
-                Intent intent1 = new Intent(getApplicationContext(), FormularioActivity.class);
+                intent.putExtra("nome", lista.get(position).getNome());
+                intent.putExtra("sigla", lista.get(position).getSigla());
                 intent.putExtra("news", lista.get(position));
 
                 //Inicializa activity
@@ -87,7 +85,10 @@ public class Welcome extends AppCompatActivity {
 
             @Override
             public void onLongClick(View view, int position) {
-                Toast.makeText(getApplicationContext(), lista.get(position).getNome()+" - "+lista.get(position).getSigla(),Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getApplicationContext(), lista.get(position).getNome()+" - "+lista.get(position).getSigla(),Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(getApplicationContext(), FormularioActivity.class);
+                intent.putExtra("news", lista.get(position));
+                startActivity(intent1);
 
             }
         }
@@ -110,7 +111,7 @@ public class Welcome extends AppCompatActivity {
         lista.add(new News("Auxilio moradia", "DV", "ASCOM"));
         lista.add(new News("Intercursos", "FB", "QP"));
         lista.add(new News("Feijoada", "PT", "RU"));
-        lista.add(new News("Festival da Canção", "FB", "Teatro"));
+        lista.add(new News("evento de dança", "FB", "Teatro"));
 
     }
 

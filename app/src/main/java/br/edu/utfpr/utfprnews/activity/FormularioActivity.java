@@ -28,12 +28,18 @@ public class FormularioActivity extends AppCompatActivity {
         imputSigla = findViewById(R.id.textImputSigla);
         imputregiao = findViewById(R.id.textImputRegiao);
 
+        News c;
         Bundle extra = getIntent().getExtras();
-        News c = (News) extra.getSerializable("Titulo");
-
-        imputTitulo.setText(c.getNome());
-        imputSigla.setText(c.getSigla());
-        imputregiao.setText(c.getRegiao());
+        try {
+            c = (News) extra.getSerializable("Titulo");
+        } catch (NullPointerException e) {
+            c = null;
+        }
+        if (c != null) {
+            imputTitulo.setText(c.getNome());
+            imputSigla.setText(c.getSigla());
+            imputregiao.setText(c.getRegiao());
+        }
     }
 
     @Override
