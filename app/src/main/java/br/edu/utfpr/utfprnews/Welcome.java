@@ -1,11 +1,15 @@
 package br.edu.utfpr.utfprnews;
 
+import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,9 +22,12 @@ import java.util.List;
 import br.edu.utfpr.utfprnews.activity.FormularioActivity;
 import br.edu.utfpr.utfprnews.activity.NewsActivity;
 import br.edu.utfpr.utfprnews.adapter.AdapterNews;
+import br.edu.utfpr.utfprnews.helpers.DbHelper;
 import br.edu.utfpr.utfprnews.listener.RecyclerViewClickListener;
 import br.edu.utfpr.utfprnews.listener.RecyclerViewTouchListener;
-import br.edu.utfpr.utfprnews.model.News;
+import br.edu.utfpr.utfprnews.model.contract.NewsContract;
+import br.edu.utfpr.utfprnews.model.dao.NewsDAO;
+import br.edu.utfpr.utfprnews.model.entity.News;
 
 public class Welcome extends AppCompatActivity {
 
@@ -29,6 +36,7 @@ public class Welcome extends AppCompatActivity {
     private RecyclerView listNews;
     private List<News> lista = new ArrayList<>();
     private FloatingActionButton fab;
+    AdapterNews adapter;
 
 
     @Override
@@ -44,51 +52,65 @@ public class Welcome extends AppCompatActivity {
 
         Toast.makeText(this, userdatavalue, Toast.LENGTH_SHORT).show();
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         listNews = findViewById(R.id.recyclerNews);
 
         fab = findViewById(R.id.floatingActionButton);
 
-        //chama lista e passa no config do adapter
-        geraLista();
-
-
-        //config do adapter
-        AdapterNews adapter = new AdapterNews(lista);
-        //config do recycler view
-
-        //Layout manager
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext());
-        listNews.setLayoutManager(manager);
-
-        //adapter
-        listNews.setAdapter(adapter);
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        //evento adicionando listener para on click
+        //evento adicionando listener para on click  --------------------------------------------------------------------------------------------------------------------------
         listNews.addOnItemTouchListener(new RecyclerViewTouchListener(
                 getApplicationContext(), listNews, new RecyclerViewClickListener() {
 
             @Override
             public void onClick(View view, int position) {
-                //faz a chamada de outra activit com base no click
+               /* //faz a chamada de outra activit com base no click
                 //Toast.makeText(getApplicationContext(), lista.get(position).getNome(),Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
 
                 //passa dados para dentro da activity
-                intent.putExtra("nome", lista.get(position).getNome());
+                intent.putExtra("titulo", lista.get(position).getTitulo());
                 intent.putExtra("sigla", lista.get(position).getSigla());
                 intent.putExtra("news", lista.get(position));
 
                 //Inicializa activity
+                startActivity(intent);*/
+                Intent intent = new Intent(getApplicationContext(), FormularioActivity.class);
+                intent.putExtra("news", lista.get(position));
                 startActivity(intent);
             }
 
             @Override
             public void onLongClick(View view, int position) {
-              //  Toast.makeText(getApplicationContext(), lista.get(position).getNome()+" - "+lista.get(position).getSigla(),Toast.LENGTH_SHORT).show();
-                Intent intent1 = new Intent(getApplicationContext(), FormularioActivity.class);
-                intent.putExtra("news", lista.get(position));
-                startActivity(intent1);
+                //cria alerta na tela ao tentar deletar
+                AlertDialog.Builder alerta = new AlertDialog.Builder(Welcome.this);
+                alerta.setTitle("Aviso");
+                alerta
+                        .setIcon(R.mipmap.ic_aviso)
+                        .setMessage("Deseja remover o item noticia?")
+                        .setCancelable(true)
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplicationContext(),"Cancelar jao", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplicationContext(), "ok escolhido", Toast.LENGTH_SHORT).show();
+                                NewsDAO dao = new NewsDAO(getApplicationContext());
+                                if(dao.remover(lista.get(position))) {
+
+
+                                    Toast.makeText(getApplicationContext(), lista.get(position).getTitulo() + " removido com sucesso!  ", Toast.LENGTH_SHORT).show();
+                                    geraLista();
+                                } else{
+                                    Toast.makeText(getApplicationContext(),  " Erro ao tentar remover noticia !  " , Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                AlertDialog alertDialog = alerta.create();
+                alertDialog.show();
 
             }
         }
@@ -97,22 +119,34 @@ public class Welcome extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(getApplicationContext(), FormularioActivity.class);
-                intent1.putExtra("news", String.valueOf(new News("","","")));
-                startActivity(intent1);
+                Intent intent = new Intent(getApplicationContext(), FormularioActivity.class);
+                //intent1.putExtra("news", String.valueOf(new News("","","")));
+                startActivity(intent);
 
             }
         });
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
-    //metodo gera lista
+    @Override
+    protected void onStart(){
+        //chama lista e passa no config do adapter
+        geraLista();
+        super.onStart();
+    }
+   //metodo gera lista---------------------------------------------------------------------------------------------------------------------------------------------
     public void geraLista(){
-        lista.add(new News("Festival da Canção", "DV", "Teatro"));
-        lista.add(new News("Auxilio moradia", "DV", "ASCOM"));
-        lista.add(new News("Intercursos", "FB", "QP"));
-        lista.add(new News("Feijoada", "PT", "RU"));
-        lista.add(new News("evento de dança", "FB", "Teatro"));
+        NewsDAO dao = new NewsDAO(getApplicationContext());
+        lista = dao.listar();
 
+        //config do adapter
+        adapter = new AdapterNews(lista);
+        //config do recycler view
+
+        //Layout manager
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext());
+        listNews.setLayoutManager(manager);
+
+        //adapter
+        listNews.setAdapter(adapter);
     }
 
 }

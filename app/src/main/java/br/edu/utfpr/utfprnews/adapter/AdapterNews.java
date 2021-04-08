@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import br.edu.utfpr.utfprnews.R;
-import br.edu.utfpr.utfprnews.model.News;
+import br.edu.utfpr.utfprnews.model.entity.News;
 
 public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder> {
 
@@ -24,14 +24,14 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder> {
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView textNome;
+        private TextView textTitulo;
         private TextView textSigla;
         private TextView textRegiao;
 
         public ViewHolder(View view){
             super(view);
             // Define o ouvinte de cliques para a visão do ViewHolder
-            textNome = view.findViewById(R.id.textViewNomeNews);
+            textTitulo = view.findViewById(R.id.textViewTituloNews);
             textRegiao = view.findViewById(R.id.textViewRegiao);
             textSigla = view.findViewById(R.id.textViewSigla);
 
@@ -56,7 +56,7 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder> {
         //acessa os elementos do viewholder e com base no que é passado como parametro é setado os valores dos elementos
         News c = lista.get(position);
 
-        holder.textNome.setText(c.getNome());
+        holder.textTitulo.setText(c.getTitulo());
         holder.textSigla.setText(c.getSigla());
         holder.textRegiao.setText(c.getRegiao());
     }

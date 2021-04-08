@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/CornflowerBlue</item>
         <item name="colorPrimaryVariant">@color/CornflowerBlue</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/GreyChateau</item>
         <item name="android:windowBackground">#49505A</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -17,7 +17,7 @@
 
     <style name="Theme.UtfprNews.NoActionBar">
         <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+        <item name="windowNoTitle">false</item>
     </style>
 
     <style name="Theme.UtfprNews.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
