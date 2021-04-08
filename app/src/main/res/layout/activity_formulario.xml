@@ -34,8 +34,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#F8F5F5"
+            android:cursorVisible="true"
             android:hint="Titulo"
-            android:textColor="#090909" />
+            android:selectAllOnFocus="false"
+            android:singleLine="true"
+            android:textColor="#090909"
+            android:textColorHint="#673AB7" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,6 +54,8 @@
             android:layout_height="wrap_content"
             android:background="#FAF8F8"
             android:hint="Sigla Campus"
+            android:selectAllOnFocus="false"
+            android:singleLine="true"
             android:textColor="#0C0C0C" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -63,6 +69,8 @@
                 android:layout_height="wrap_content"
                 android:background="#FBFAFA"
                 android:hint="Local"
+                android:selectAllOnFocus="false"
+                android:singleLine="true"
                 android:textColor="#050505" />
 
             <ImageView
@@ -81,7 +89,8 @@
                     android:background="#FBF8F8"
                     android:hint="Descricao"
                     android:textColor="#090909"
-                    android:typeface="sans" />
+                    android:typeface="normal"
+                    android:verticalScrollbarPosition="defaultPosition" />
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -97,6 +106,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:onClick="btnSalvarFormulario"
                             android:text="Salvar"
                             android:textSize="18sp"
                             android:textStyle="bold"

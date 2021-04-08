@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "87002926388",
+    "project_id": "utfprnews",
+    "storage_bucket": "utfprnews.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87002926388:android:2458cde9eb4b5f78356961",
+        "android_client_info": {
+          "package_name": "br.edu.utfpr.utfprnews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87002926388-fu3ukut4jrtlr3d9osi9nfvcdbr3uh6k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.edu.utfpr.utfprnews",
+            "certificate_hash": "69d4d5ef7bd7c554cd570eaa007cf281d77109bc"
+          }
+        },
+        {
+          "client_id": "87002926388-urvgc57stfl1dddb0ov7mehcgbuisd1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo2ZuCvIWj_0pCdJtOnLd3JpSAHDCcfbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87002926388-urvgc57stfl1dddb0ov7mehcgbuisd1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

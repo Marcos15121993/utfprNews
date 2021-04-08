@@ -15,6 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,8 +31,11 @@ import br.edu.utfpr.utfprnews.listener.RecyclerViewTouchListener;
 import br.edu.utfpr.utfprnews.model.contract.NewsContract;
 import br.edu.utfpr.utfprnews.model.dao.NewsDAO;
 import br.edu.utfpr.utfprnews.model.entity.News;
+import br.edu.utfpr.utfprnews.register.Users;
 
 public class Welcome extends AppCompatActivity {
+
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
     TextView txtWelcomeMessage;
 
@@ -44,6 +50,14 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        //firebase  --------------------------------------------------------------------------------------------------------------------------
+
+        Users uso = new Users("Jao", "teste", "abc1243", "jao@jao.com.br");
+        DatabaseReference users = reference.child("usuarios");
+        users.child("004").setValue(uso);
+
+
+        //------------------------------------------------  --------------------------------------------------------------------------------------------------------------------------
         txtWelcomeMessage = findViewById(R.id.txtWelcomeMessage);
 
         Intent intent = getIntent();
@@ -63,17 +77,6 @@ public class Welcome extends AppCompatActivity {
 
             @Override
             public void onClick(View view, int position) {
-               /* //faz a chamada de outra activit com base no click
-                //Toast.makeText(getApplicationContext(), lista.get(position).getNome(),Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), NewsActivity.class);
-
-                //passa dados para dentro da activity
-                intent.putExtra("titulo", lista.get(position).getTitulo());
-                intent.putExtra("sigla", lista.get(position).getSigla());
-                intent.putExtra("news", lista.get(position));
-
-                //Inicializa activity
-                startActivity(intent);*/
                 Intent intent = new Intent(getApplicationContext(), FormularioActivity.class);
                 intent.putExtra("news", lista.get(position));
                 startActivity(intent);

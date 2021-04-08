@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btnLoginEntrar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login">
@@ -16,6 +17,7 @@
             android:layout_height="864dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.712"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
@@ -23,54 +25,30 @@
 
         <EditText
             android:id="@+id/edtUsername"
-            android:layout_width="277dp"
-            android:layout_height="43dp"
-            android:layout_marginTop="132dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="0dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="32dp"
             android:layout_weight="1"
-            android:background="#6AF4F0F0"
+            android:drawableStart="@drawable/avatar"
+            android:drawableLeft="@drawable/avatar"
             android:ems="10"
             android:fontFamily="serif"
-            android:hint="@string/enter_email_address"
+            android:hint="@string/Username"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/txtUsername"
-            app:layout_constraintTop_toBottomOf="@+id/divider2" />
-
-        <TextView
-            android:id="@+id/txtUsername"
-            android:layout_width="88dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="132dp"
-            android:layout_weight="1"
-            android:fontFamily="serif"
-            android:text="@string/username"
-            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
-        <TextView
-            android:id="@+id/txtPassword"
-            android:layout_width="92dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="24dp"
-            android:layout_weight="1"
-            android:fontFamily="serif"
-            android:text="@string/password"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="@+id/txtUsername"
-            app:layout_constraintStart_toStartOf="@+id/txtUsername"
-            app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
-
         <EditText
             android:id="@+id/edtPassword"
-            android:layout_width="278dp"
+            android:layout_width="368dp"
             android:layout_height="40dp"
             android:layout_marginTop="16dp"
             android:layout_weight="1"
-            android:background="#66F8F5F5"
+            android:drawableStart="@drawable/lock"
+            android:drawableLeft="@drawable/lock"
             android:ems="10"
             android:fontFamily="serif"
             android:hint="@string/enter_password"
@@ -83,50 +61,43 @@
         <View
             android:id="@+id/divider3"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="84dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="100dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
         <Switch
             android:id="@+id/switch1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="32dp"
             android:text="Lembrar Usuario"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
-
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="187dp"
-            android:layout_height="42dp"
-            android:layout_marginTop="100dp"
-            android:background="@drawable/fundo"
-            android:fontFamily="serif"
-            android:lineSpacingExtra="10sp"
-            android:text="@string/login"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:typeface="serif"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider3"
-            app:layout_constraintVertical_bias="0.007" />
 
         <View
             android:id="@+id/divider2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="32dp"
             android:background="?android:attr/listDivider"
-            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="213dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="128dp"
+            android:text="Entrar"
+            android:textColor="#FDFCFC"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
         <ImageView
             android:id="@+id/imageView8"
@@ -137,6 +108,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView7"
             app:srcCompat="@drawable/utfpr" />
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="378dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_login"
+            android:onClick="salvar_dados"
+            android:text="Cadastre-se"
+            android:textColor="#FAF6F6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.592"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

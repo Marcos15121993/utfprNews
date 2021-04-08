@@ -18,11 +18,14 @@
     <color name="Cinnabar">#F14336</color>
     <color name="LimeGreen">#28B446</color>
     <color name="CornflowerBlue">#518EF8</color>
+    <color name="yellow">#fff5f504</color>
     <color name="TangerineYellow">#FBBB00</color>
     <color name="Mariner">#3B5998</color>
     <color name="Nero">#1A1A1A</color>
     <color name="BaliHai">#8A9EAD</color>
     <color name="White">#FAFAFA</color>
     <color name="GreyChateau">#959CA7</color>
+    <color name="red">#B71C1C</color>
+
 
 </resources>

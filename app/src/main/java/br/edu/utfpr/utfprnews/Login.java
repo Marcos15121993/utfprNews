@@ -1,9 +1,11 @@
 package br.edu.utfpr.utfprnews;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,11 +13,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import br.edu.utfpr.utfprnews.activity.FormularioActivity;
+
 public class Login extends AppCompatActivity {
 
 
     private EditText edtUsername,edtPassword;
     private Button btnLogin;
+    private Button btnSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,7 @@ public class Login extends AppCompatActivity {
         edtUsername = (EditText)findViewById(R.id.edtUsername);
         edtPassword = (EditText)findViewById(R.id.edtPassword);
         btnLogin    = (Button)findViewById(R.id.btnLogin);
+        btnSignUp = (Button)findViewById(R.id.btnSignUp);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,5 +60,12 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void salvar_dados(View view) {
+        Intent intent = new Intent(br.edu.utfpr.utfprnews.Login.this,Login.class);
+
+        startActivity(intent);
+        finish();
     }
 }
