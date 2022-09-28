@@ -34,12 +34,17 @@ Tema Abordado
 Aplicativo para gerenciamento de eventos do Campus Dois Vizinhos
 Durante o ano do Campus, acontecem diversos eventos promovidos pelos cursos de graduação, pós graduação, eventos de extensão, eventos de direção. Atualmente, existe um local centralizado, porém o acesso é somente via web. Um aplicativo para gerenciar e visualizar eventos seria de grande auxílio para a comunidade acadêmica ser informada de tudo que acontece no Campus. Exemplos: Semana Acadêmica, SEI SICITE, Dia de Campo, Jogos intercursos, etc.
 
+
 Link para vídeo do manual: https://www.youtube.com/watch?v=wvTTALZtxys
+
 Índice do Conteúdo 
 
 1 – Instalação e Tela de inicio......................................................................................3
+
 2 - Tela de Login.......................................................................................................4 á 5 
+
 3 - Menu Principal...........................................................................................................6
+
 4 – Tela de Exibição.......................................................................................................7
 
 
