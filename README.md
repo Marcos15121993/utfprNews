@@ -91,6 +91,7 @@ Caso seja um usuário novo, pode selecionar a opção cadastra-se, para inserir 
 
 
 
+![image](https://user-images.githubusercontent.com/44619161/192792087-eac9aad3-72e5-4bf3-8101-18d8110fb46b.png)
 
 
 
@@ -115,9 +116,11 @@ Ao inserir um login e senha válidos, ao clicar no botão Login, será feito a a
 
 
 
+![image](https://user-images.githubusercontent.com/44619161/192792153-4e34fab6-b53e-43a5-98d9-c89d7d8e5d31.png)
 
 
 
+![image](https://user-images.githubusercontent.com/44619161/192792238-897278b5-913a-4934-b8c0-78af77f81d97.png)
 
 
 - Alerta de Erro na Autenticação              
@@ -125,6 +128,7 @@ Ao inserir um login e senha válidos, ao clicar no botão Login, será feito a a
 
 
 
+![image](https://user-images.githubusercontent.com/44619161/192792216-68a41c88-5d64-445b-bae3-004175f0ea54.png)
 
                - Alerta de Autenticação Ok, “Bem Vindo”
 
@@ -143,13 +147,16 @@ A segunda tela mostra as opções dos eventos. Onde estarão as opções de cada
 
 
 
+![image](https://user-images.githubusercontent.com/44619161/192792275-e6233d91-6930-4287-abc6-e37bd445974a.png)
 
 
 
 
 
 
+![image](https://user-images.githubusercontent.com/44619161/192792182-593ecc42-c40d-444f-8f82-4a999588f700.png)
 
+![image](https://user-images.githubusercontent.com/44619161/192792311-790454eb-123c-4057-97fd-48966c6f2390.png)
 
 
 
@@ -169,12 +176,14 @@ Tela de identificação dos autores do aplicativo. Á esquerda.
 	
 Á direita, tela Home, identificando usuário e eventos para solicitar o que será feito ou utilizado de acordo com a necessidade.
 
+![image](https://user-images.githubusercontent.com/44619161/192792342-6da3bef4-020b-4e02-8f7a-70ed34b53726.png)
 
 
 
 
 
 
+![image](https://user-images.githubusercontent.com/44619161/192792377-88143a18-aff7-4c0e-91cb-d40375aa2ae8.png)
 
 
 
